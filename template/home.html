@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+  <title>Home</title>
+  <!-- CSS -->
+
+</head>
+<style>
+  .para {
+    font-size: large;
+  }
+
+  #main-footer {
+    color: #FFFFFF;
+    font-family: "Segoe UI";
+    background: #2B2B2B;
+    text-align: center;
+    margin-top: 108px;
+    padding: 16px;
+    bottom: 8px;
+  }
+
+  img {
+    height: 300px !important;
+  }
+
+  li {
+    list-style: none;
+  }
+</style>
+
+<body>
+
+  <header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand mr-4" href="/">Smart Healthcare</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+          aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+          <div class="navbar-nav mr-auto">
+            <a class="nav-item nav-link" href="/">Home</a>
+            <a class="nav-item nav-link" href="/about">About</a>
+            <a class="nav-item nav-link" href="/cancer">Cancer</a>
+            <a class="nav-item nav-link" href="/diabetes">Diabetes</a>
+            <a class="nav-item nav-link" href="/heart">Heart</a>
+            <a class="nav-item nav-link" href="/liver">Liver</a>
+            <a class="nav-item nav-link" href="/kidney">Kidney</a>
+            <a class="nav-item nav-link" href="/checkup">Health Checkup</a>
+            <!-- <a class="nav-item nav-link" href="/Malaria">Malaria</a>
+            <a class="nav-item nav-link" href="/Pneumonia">Pneumonia</a> -->
+          </div>
+          <!-- Navbar Right Side  -->
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <div class="col-md-8">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">
+        {{ message }}
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </div>
+
+    <!-- main starts from here -->
+    <main>
+
+      <!-- carousal -->
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{{ url_for('static', filename='/home/img-1.jpg') }}" class="d-block w-100 img-fluid" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Informed patient care</h5>
+              <p>Integrating medical AI into clinician workflows can give providers valuable context while they're
+                making care decisions.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='/home/img-2.jpg') }}" class="d-block w-100 img-fluid" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Error reduction</h5>
+              <p>There is some evidence that AI can help improve patient safety.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='/home/img-3.jpg') }}" class="d-block w-100 img-fluid" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Providing contextual relevance</h5>
+              <p>One major advantage of deep learning is that AI algorithms can use context to distinguish between
+                different types of information.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <!-- carousal ends -->
+      <!-- content starts from here -->
+      <div class="section">
+        <h1 class="text-center my-4">Welcome to the Smart Healthcare</h1>
+        <div class="para mt-2">
+          AI in healthcare is an umbrella term to describe the application of machine learning (ML) algorithms and other
+          cognitive technologies in medical settings. In the simplest sense, AI is when computers and other machines
+          mimic human cognition, and are capable of learning, thinking, and making decisions or taking actions. AI in
+          healthcare, then, is the use of machines to analyze and act on medical data, usually with the goal of
+          predicting a particular outcome.
+        </div>
+        <div class="para mt-2">
+          A significant AI use case in healthcare is the use of ML and other cognitive disciplines for medical diagnosis
+          purposes. Using patient data and other information, AI can help doctors and medical providers deliver more
+          accurate diagnoses and treatment plans. Also, AI can help make healthcare more predictive and proactive by
+          analyzing big data to develop improved preventive care recommendations for patients.
+        </div>
+        <div class="para mt-2">
+          Healthcare is one of the most critical sectors in the broader landscape of big data because of its fundamental
+          role in a productive, thriving society. The application of AI to healthcare data can literally be a matter of
+          life and death. AI can assist doctors, nurses, and other healthcare workers in their daily work. AI in
+          healthcare can enhance preventive care and quality of life, produce more accurate diagnoses and treatment
+          plans, and lead to better patient outcomes overall. AI can also predict and track the spread of infectious
+          diseases by analyzing data from a government, healthcare, and other sources. As a result, AI can play a
+          crucial role in global public health as a tool for combatting epidemics and pandemics.
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-6 p-3">
+          <img class="img-fluid rounded" src="../static//home/ai_1.jpeg" alt="">
+        </div>
+        <div class="col-6">
+          <div style="min-height: 350px;" class="d-flex align-items-center justify-content-center">
+            <div>
+              <h2 class="text-center">AI in Medicine</h2>
+              <br>
+              <p class="para">
+                Artificial intelligence in medicine is the use of machine learning models to search medical data and
+                uncover insights to help improve health outcomes and patient experiences. Thanks to recent advances in
+                computer science and informatics, artificial intelligence (AI) is quickly becoming an integral part of
+                modern healthcare. AI algorithms and other applications powered by AI are being used to support medical
+                professionals in clinical settings and in ongoing research.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-6">
+          <div style="min-height: 350px;" class="d-flex align-items-center justify-content-center">
+            <div>
+              <h2 class="text-center">AI in disease detection and diagnosis</h2>
+              <br>
+              <p class="para">
+                Unlike humans, AI never needs to sleep. Machine learning models could be used to observe the vital signs
+                of patients receiving critical care and alert clinicians if certain risk factors increase. While medical
+                devices like heart monitors can track vital signs, AI can collect the data from those devices and look
+                for more complex conditions, such as sepsis. One IBM client has developed a predictive AI model for
+                premature babies that is 75% accurate in detecting severe sepsis.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 p-3">
+          <img class="img-fluid rounded" src="../static//home/ai_2.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-6 p-3">
+          <img class="img-fluid rounded" src="../static//home/ai_3.jpg" alt="">
+        </div>
+        <div class="col-6">
+          <div style="min-height: 350px;" class="d-flex align-items-center justify-content-center">
+            <div>
+              <h2 class="text-center">Roles in Medical</h2>
+              <p class="para">
+                Currently, the most common roles for AI in medical settings are clinical decision support and imaging
+                analysis. Clinical decision support tools help providers make decisions about treatments, medications,
+                mental health and other patient needs by providing them with quick access to information or research
+                that's relevant to their patient. In medical imaging, AI tools are being used to analyze CT scans,
+                x-rays,
+                MRIs and other images for lesions or other findings that a human radiologist might miss.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer id="main-footer">
+    <div class="row">
+      <div class="col">
+        <ul class="text-start">
+          <li>
+            <h3 class="text-white">Applications</h3>
+          </li>
+          <li>To remove the dependencies on the doctors</li>
+          <li>To help out the poor and helpless people with the normal medical checkup</li>
+          <li>To help people avoid paying huge amount to the doctors unnecessarily</li>
+          <li>To extend the role of the technology in the medical field</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3 class="text-white text-start">Overview</h3>
+        <p class="text-start">
+          This is mainly based on as the application of the machine learning,meant to be employed in the remote and the
+          downtrodden area.
+          In todays time we see a lot of the shortage of the doctors in the world especially in India.A lot of people
+          are suffering a lot without the help of the proper medical checkup.Also most of the cases many cases arise
+          leading to dealth due to lack of timely medical checkup.
+          So to cope up with all of those problems this app is designed which would prove its benefits upto much extent.
+        </p>
+      </div>
+    </div>
+    <h5 class="text-white">Smart Healthcare &copy; 2022</h5>
+  </footer>
+
+
+
+  <!-- scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

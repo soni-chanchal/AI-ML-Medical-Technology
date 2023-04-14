@@ -1,0 +1,9 @@
+# First method
+1. set FLASK_APP=app.py
+2. flask run
+
+# Second method
+python app.py
+
+#  http://127.0.0.1:5000/
+
